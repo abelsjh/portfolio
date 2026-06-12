@@ -1,26 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@100..900&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f7f1e8;
+  --bg2: #f0eadf;
+  --surface: #e8e1d4;
+  --border: #d8d0c5;
+  --text: #2c241f;
+  --text-muted: #7a6f67;
+  --accent: #a97848;
+  --accent2: #8a9a5b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-bg: #f7f1e8;
+  --color-bg2: #f0eadf;
+  --color-surface: #e8e1d4;
+  --color-border: #d8d0c5;
+  --color-text: #2c241f;
+  --color-text-muted: #7a6f67;
+  --color-accent: #a97848;
+  --color-accent2: #8a9a5b;
+  --font-serif: "DM Serif Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-handwritten: "Caveat", cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+  background-color: #f7f1e8 !important;
+  color: #2c241f !important;
+  font-family: "Inter", sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f7f1e8 !important;
+  color: #2c241f !important;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Explicit Utility Class Overrides for Theme Colors */
+.bg-bg {
+  background-color: #f7f1e8 !important;
+}
+.bg-bg2 {
+  background-color: #f0eadf !important;
+}
+.bg-surface {
+  background-color: #e8e1d4 !important;
+}
+.text-text {
+  color: #2c241f !important;
+}
+.text-text-muted {
+  color: #7a6f67 !important;
+}
+.text-accent {
+  color: #a97848 !important;
+}
+.text-bg {
+  color: #f7f1e8 !important;
+}
+.border-border {
+  border-color: #d8d0c5 !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent);
+  color: var(--bg);
+}
+
+/* Utility Classes */
+.serif-font {
+  font-family: "DM Serif Display", serif;
+}
+
+.handwritten,
+.font-handwritten {
+  font-family: "Caveat", cursive;
+}
+
+.grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Infinite Marquee Animations */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
 }
