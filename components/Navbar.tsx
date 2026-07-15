@@ -83,6 +83,19 @@ export default function Navbar() {
             <div className="h-4 w-[1px] bg-border/40 hidden min-[480px]:block" />
 
             <div className="flex items-center gap-2">
+              {/* Resume Download Button */}
+              <a
+                href="/Abel_Jason_Portfolio.pdf"
+                download="Abel_Jason_Portfolio.pdf"
+                className="px-3 sm:px-4 py-1.5 sm:py-2 border border-border hover:border-accent/45 rounded-full text-[9px] sm:text-xs font-bold text-text-muted hover:text-accent transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm bg-bg/20"
+                aria-label="Download Resume"
+              >
+                <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                <span>Resume</span>
+              </a>
+
               {/* Connect Button */}
               <button
                 onClick={handleCopyEmail}

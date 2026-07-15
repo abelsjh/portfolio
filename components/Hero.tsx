@@ -161,6 +161,7 @@ export default function Hero() {
 
   return (
     <motion.section
+      id="hero"
       ref={containerRef}
       style={{ scale }}
       onMouseMove={handleMouseMove}
@@ -320,8 +321,18 @@ export default function Hero() {
               Explore the Journey
             </a>
             <a
+              href="/Abel_Jason_Portfolio.pdf"
+              download="Abel_Jason_Portfolio.pdf"
+              className="w-full sm:w-auto px-7 py-3.5 border border-border text-text font-semibold rounded-full hover:border-accent hover:text-accent hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center gap-2 text-sm cursor-pointer"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Resume
+            </a>
+            <a
               href="#contact"
-              className="w-full sm:w-auto px-7 py-3.5 border border-border text-text font-semibold rounded-full hover:border-accent hover:text-accent transition-all duration-300 flex items-center justify-center text-sm"
+              className="w-full sm:w-auto px-7 py-3.5 border border-border text-text font-semibold rounded-full hover:border-accent hover:text-accent hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center text-sm"
             >
               Let’s Connect
             </a>

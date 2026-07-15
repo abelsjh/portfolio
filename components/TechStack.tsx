@@ -151,7 +151,7 @@ const DOUBLE_TECHNOLOGIES = [...TECHNOLOGIES, ...TECHNOLOGIES, ...TECHNOLOGIES];
 
 export default function TechStack() {
   return (
-    <section className="relative py-20 bg-bg overflow-hidden border-b border-border/20 select-none">
+    <section id="tech" className="relative py-20 bg-bg overflow-hidden border-b border-border/20 select-none">
       {/* Subtle background strip highlights */}
       <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />

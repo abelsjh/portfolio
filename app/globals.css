@@ -128,3 +128,230 @@ body {
 .animate-marquee {
   animation: marquee 35s linear infinite;
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   PRINT STYLES (Ctrl + P) - Professional CV/Resume Layout
+   ────────────────────────────────────────────────────────────────────────── */
+@media print {
+  /* Reset document defaults */
+  html, body {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #2c241f !important;
+    font-size: 10.5pt !important;
+    line-height: 1.4 !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide interactive, floating, and decorative assets */
+  header,
+  nav,
+  footer,
+  button,
+  aside,
+  .grain,
+  .fixed,
+  .sticky,
+  [class*="SocialSidebar"],
+  [class*="Navbar"],
+  [class*="Toast"],
+  svg:not(.print-icon),
+  div[class*="Tape"],
+  div[class*="glow"],
+  .absolute.bottom-8.left-1\/2,
+  a[href^="#work"],
+  a[href^="#contact"],
+  a[href^="#journey"],
+  #beyond, /* Hide "Beyond Code" photo gallery for clean professional CV */
+  #contact p, /* Hide contact paragraph CTA */
+  #contact button, /* Hide Copy Email button */
+  #contact .mt-24 /* Hide contact footer copy */ {
+    display: none !important;
+  }
+
+  /* Reset layout boxes to simple block layout */
+  main, section, div, article {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    background: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Margins for logical pages and sections */
+  section {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+    margin-bottom: 2rem !important;
+    padding: 1rem 0 !important;
+    display: block !important;
+    border-bottom: 1px solid #d8d0c5 !important;
+  }
+
+  /* Hero section typography */
+  #hero {
+    page-break-inside: avoid !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  #hero h1 {
+    font-size: 26pt !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  #hero p {
+    font-size: 11pt !important;
+    max-width: 100% !important;
+    color: #555555 !important;
+  }
+
+  /* Display mobile linear list representation of grid/timelines */
+  .lg\:hidden {
+    display: block !important;
+  }
+
+  .hidden.lg\:block {
+    display: none !important;
+  }
+
+  /* Journey / Timeline */
+  #journey {
+    page-break-inside: auto !important;
+  }
+
+  #journey .grid-cols-\[50px_1fr\],
+  #journey .grid-cols-\[70px_1fr\] {
+    grid-template-cols: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  #journey .sticky.top-24 {
+    display: none !important;
+  }
+
+  #journey .flex-col.gap-10 {
+    gap: 1.25rem !important;
+  }
+
+  #journey .border.rounded-2xl {
+    border: 1px solid #d8d0c5 !important;
+    background-color: #ffffff !important;
+    padding: 1.25rem !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+  }
+
+  /* Tech Stack grid wrapper */
+  #tech {
+    page-break-inside: avoid !important;
+  }
+
+  #tech .animate-marquee {
+    animation: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  #tech .animate-marquee > div {
+    background-color: #ffffff !important;
+    border: 1px solid #d8d0c5 !important;
+    color: #2c241f !important;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  /* Hide duplicate elements in tech stack marquee */
+  #tech .animate-marquee > div:nth-child(n+13) {
+    display: none !important;
+  }
+
+  /* Works / Projects */
+  #work {
+    page-break-inside: auto !important;
+  }
+
+  #work .flex-col.gap-6 {
+    gap: 1.5rem !important;
+  }
+
+  #work .border.rounded-2xl {
+    border: 1px solid #d8d0c5 !important;
+    background-color: #ffffff !important;
+    padding: 1.25rem !important;
+    page-break-inside: avoid !important;
+    grid-template-cols: 1fr !important; /* Stack columns vertically for print */
+    gap: 1rem !important;
+  }
+
+  #work .grid-cols-1.lg\:grid-cols-\[1fr_380px\] {
+    grid-template-cols: 1fr !important;
+  }
+
+  /* Hide visual screenshots in project view to save printer ink and space */
+  #work .relative.rounded-xl.overflow-hidden.border {
+    display: none !important;
+  }
+
+  /* Show hover metrics */
+  #work [style*="opacity: 0.4"], #work [style*="opacity:0.4"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #work .grid-cols-3 {
+    gap: 0.75rem !important;
+  }
+
+  #work .rounded-xl.p-3.border {
+    border: 1px solid #e2e8f0 !important;
+    background-color: #f8fafc !important;
+    padding: 0.5rem !important;
+  }
+
+  /* Contact Section */
+  #contact {
+    page-break-inside: avoid !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    border-bottom: none !important;
+  }
+
+  #contact h2 {
+    font-size: 20pt !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  #contact::after {
+    content: "CONTACT INFORMATION\nEmail: abeljason11@gmail.com\nGitHub: github.com/abelsjh\nLocation: Pekalongan, Indonesia" !important;
+    display: block !important;
+    white-space: pre-wrap !important;
+    font-family: monospace !important;
+    font-size: 10pt !important;
+    line-height: 1.6 !important;
+    margin-top: 1.5rem !important;
+    color: #2c241f !important;
+    border-top: 1px dashed #d8d0c5 !important;
+    padding-top: 1rem !important;
+  }
+}
