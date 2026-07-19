@@ -61,16 +61,16 @@ export default function Navbar() {
           <div className="flex items-center gap-4 sm:gap-6">
             <nav className="flex items-center gap-4 sm:gap-6">
               <a
-                href="#work"
-                className="text-[0.78rem] sm:text-[0.85rem] uppercase tracking-[0.04em] font-bold text-text-muted hover:text-accent transition-colors duration-300"
-              >
-                Work
-              </a>
-              <a
                 href="#journey"
                 className="text-[0.78rem] sm:text-[0.85rem] uppercase tracking-[0.04em] font-bold text-text-muted hover:text-accent transition-colors duration-300"
               >
                 Journey
+              </a>
+              <a
+                href="#work"
+                className="text-[0.78rem] sm:text-[0.85rem] uppercase tracking-[0.04em] font-bold text-text-muted hover:text-accent transition-colors duration-300"
+              >
+                Work
               </a>
               <a
                 href="#contact"

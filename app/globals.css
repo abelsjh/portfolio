@@ -129,6 +129,18 @@ body {
   animation: marquee 35s linear infinite;
 }
 
+/* Custom Scroll Indicator media queries to prevent overlapping */
+.scroll-indicator {
+  display: none !important;
+}
+
+@media (min-width: 768px) and (min-height: 800px) {
+  .scroll-indicator {
+    display: flex !important;
+  }
+}
+
+
 /* ──────────────────────────────────────────────────────────────────────────
    PRINT STYLES (Ctrl + P) - Professional CV/Resume Layout
    ────────────────────────────────────────────────────────────────────────── */
