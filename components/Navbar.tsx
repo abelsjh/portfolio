@@ -40,9 +40,9 @@ export default function Navbar() {
       if (href === "#beyond-code") {
         const rect = target.getBoundingClientRect();
         const scrollTop = window.scrollY + rect.top;
-        // For the 300vh sticky photo gallery, scroll directly to 50% scroll progress (1.1x viewport height)
-        // so all photos are immediately arranged and visible without manual scrolling
-        const targetScroll = scrollTop + window.innerHeight * 1.1;
+        // Scroll to ~0.69 progress (1.38x viewport height) where all 12 photos have 100% finished entering
+        // and are completely arranged on screen before any exit animation starts
+        const targetScroll = scrollTop + window.innerHeight * 1.38;
         window.scrollTo({ top: targetScroll, behavior: "smooth" });
       } else {
         target.scrollIntoView({ behavior: "smooth" });
