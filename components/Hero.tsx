@@ -314,42 +314,57 @@ export default function Hero() {
             variants={elementReveal}
             className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-2 w-full sm:w-auto"
           >
+            {/* PRIMARY: View Resume */}
             <motion.a
-              href="#journey"
+              href="/Resume_Abelsjh_Portfolio.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
               className="w-full sm:w-auto px-7 py-3.5 bg-accent text-bg font-semibold rounded-full shadow-md hover:shadow-accent/25 flex items-center justify-center gap-2 text-sm text-center"
             >
-              Explore the Journey
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              View Resume
             </motion.a>
-            <div className="flex items-center gap-2.5 w-full sm:w-auto">
-              <motion.a
-                href="/Resume_Abelsjh_Portfolio.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                className="flex-1 sm:flex-initial px-5 py-3.5 border border-border text-text font-semibold rounded-full hover:border-accent hover:text-accent transition-colors duration-300 flex items-center justify-center gap-2 text-sm bg-bg/40 backdrop-blur-sm"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
-                <span>View Resume</span>
-              </motion.a>
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                className="flex-1 sm:flex-initial px-5 py-3.5 border border-border/60 text-text-muted font-medium rounded-full hover:border-accent hover:text-accent transition-colors duration-300 flex items-center justify-center text-sm"
-              >
-                Connect
-              </motion.a>
-            </div>
+
+            {/* SECONDARY: Connect */}
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="w-full sm:w-auto px-7 py-3.5 border border-border/60 text-text-muted font-medium rounded-full hover:border-accent hover:text-accent transition-colors duration-300 flex items-center justify-center gap-2 text-sm bg-bg/40 backdrop-blur-sm"
+            >
+              Connect
+            </motion.a>
           </motion.div>
+
+          {/* Scroll-cue: Explore the Journey */}
+          <motion.a
+            href="#journey"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector("#journey")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            variants={elementReveal}
+            whileHover={{ y: 2 }}
+            transition={{ duration: 0.2 }}
+            className="flex items-center gap-2 text-text-muted/55 hover:text-accent transition-colors duration-300 cursor-pointer mt-1 self-start sm:self-auto w-fit group"
+          >
+            <motion.span
+              animate={{ y: [0, 4, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+              className="text-xs"
+            >
+              ↓
+            </motion.span>
+            <span className="text-[11px] font-medium tracking-wide uppercase group-hover:text-accent transition-colors duration-300">
+              Explore my journey
+            </span>
+          </motion.a>
         </motion.div>
 
         {/* Mobile candid photo (Curated single photo vertical experience) */}
