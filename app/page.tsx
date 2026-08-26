@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Journey from "@/components/Journey";
 import TechStack from "@/components/TechStack";
 import Works from "@/components/Works";
+import DevActivity from "@/components/DevActivity";
 import BeyondCode from "@/components/BeyondCode";
 import Contact from "@/components/Contact";
 import StickyFooter from "@/components/StickyFooter";
@@ -19,6 +20,7 @@ export default function Home() {
         <Journey />
         <TechStack />
         <Works />
+        <DevActivity />
         <BeyondCode />
         <Contact />
       </main>
