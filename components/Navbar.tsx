@@ -44,7 +44,8 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      // Show navbar only after scrolling past 35% of the viewport height (past the hero section)
+      setScrolled(window.scrollY > window.innerHeight * 0.35);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -64,7 +65,7 @@ export default function Navbar() {
           }
         });
       },
-      { threshold: 0.15 } // Lower threshold so tall sections like #beyond-code (300vh) are accurately detected
+      { threshold: 0.15 }
     );
 
     sections.forEach((sec) => sec && observer.observe(sec));
@@ -74,15 +75,13 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] px-4 sm:px-8 py-3 sm:py-4`}
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] px-4 sm:px-8 py-3 sm:py-4 ${
+          scrolled
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-6 pointer-events-none"
+        }`}
       >
-        <div
-          className={`w-full max-w-7xl flex items-center justify-between transition-all duration-500 rounded-full px-5 py-2.5 sm:px-7 sm:py-3 ${
-            scrolled
-              ? "bg-[#F7F1E8]/85 backdrop-blur-[20px] border border-border/80 shadow-[0_8px_32px_rgba(28,22,19,0.06)]"
-              : "bg-transparent border border-transparent"
-          }`}
-        >
+        <div className="w-full max-w-7xl flex items-center justify-between rounded-full px-5 py-2.5 sm:px-7 sm:py-3 bg-[#F7F1E8]/85 backdrop-blur-[20px] border border-border/80 shadow-[0_8px_32px_rgba(28,22,19,0.06)]">
           {/* Logo Brand */}
           <a
             href="#"
