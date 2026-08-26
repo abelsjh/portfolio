@@ -33,6 +33,15 @@ export default function Navbar() {
     }, 800);
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(href);
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -55,7 +64,7 @@ export default function Navbar() {
           }
         });
       },
-      { threshold: 0.35 }
+      { threshold: 0.15 } // Lower threshold so tall sections like #beyond-code (300vh) are accurately detected
     );
 
     sections.forEach((sec) => sec && observer.observe(sec));
@@ -77,13 +86,18 @@ export default function Navbar() {
           {/* Logo Brand */}
           <a
             href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              setActiveSection("");
+            }}
             className="serif-font text-lg sm:text-xl font-bold tracking-tight text-text hover:text-accent transition-colors duration-300 flex items-center gap-2"
           >
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
             abelsjh
           </a>
 
-          {/* Nav Items */}
+          {/* Nav Items (Desktop) */}
           <nav className="hidden md:flex items-center gap-1 bg-border/20 p-1 rounded-full border border-border/40 backdrop-blur-md">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.href;
@@ -91,6 +105,7 @@ export default function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`relative px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 ${
                     isActive
                       ? "text-accent font-bold"
@@ -112,12 +127,13 @@ export default function Navbar() {
 
           {/* Quick Actions */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Mobile Nav Links (Compact) */}
+            {/* Mobile Nav Links */}
             <nav className="flex md:hidden items-center gap-2 mr-1">
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`text-[10px] uppercase font-bold tracking-tight ${
                     activeSection === item.href ? "text-accent" : "text-text-muted"
                   }`}

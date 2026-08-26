@@ -180,7 +180,7 @@ body {
   a[href^="#work"],
   a[href^="#contact"],
   a[href^="#journey"],
-  #beyond, /* Hide "Beyond Code" photo gallery for clean professional CV */
+  #beyond-code, /* Hide "Beyond Code" photo gallery for clean professional CV */
   #contact p, /* Hide contact paragraph CTA */
   #contact button, /* Hide Copy Email button */
   #contact .mt-24 /* Hide contact footer copy */ {
