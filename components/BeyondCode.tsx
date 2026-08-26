@@ -379,7 +379,7 @@ export default function BeyondCode() {
   return (
     <section
       ref={sectionRef}
-      id="beyond"
+      id="beyond-code"
       className={`relative bg-bg border-b border-border/20 z-10 ${
         isMobile ? "h-auto py-24 px-6 md:px-12" : "h-[300vh]"
       }`}
