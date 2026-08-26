@@ -37,14 +37,22 @@ export default function Navbar() {
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+      if (href === "#beyond-code") {
+        const rect = target.getBoundingClientRect();
+        const scrollTop = window.scrollY + rect.top;
+        // For the 300vh sticky photo gallery, scroll directly to 50% scroll progress (1.1x viewport height)
+        // so all photos are immediately arranged and visible without manual scrolling
+        const targetScroll = scrollTop + window.innerHeight * 1.1;
+        window.scrollTo({ top: targetScroll, behavior: "smooth" });
+      } else {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
       setActiveSection(href);
     }
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show navbar only after scrolling past 35% of the viewport height (past the hero section)
       setScrolled(window.scrollY > window.innerHeight * 0.35);
     };
 
