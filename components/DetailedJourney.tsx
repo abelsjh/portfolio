@@ -36,7 +36,7 @@ const DETAILED_YEARS = [
     label: "SYSTEMS BUILDER",
     description:
       "Deploying active operational attendance workflows and digital office integration lines.",
-    handwriting: "~ presensi online & GPS",
+    handwriting: "~ presensi & face recognition",
   },
   {
     year: "2026",
@@ -423,20 +423,20 @@ export default function DetailedJourney() {
                 </div>
               </YearParallax>
 
-              {/* Floating GPS HUD Geofence zones (drifts slower) */}
+              {/* Floating Face Recognition scan card (drifts slower) */}
               <YearParallax scrollOffset={-25} className="absolute right-[12%] top-[45%] w-[290px] z-10">
                 <div className="bg-white/40 backdrop-blur-[2px] p-4 shadow-md border border-border/30 rounded-lg rotate-[2deg] flex flex-col gap-3 font-mono">
                   <Tape className="-top-3 left-10" rotate={-8} />
                   <div className="flex items-center gap-3">
-                    {/* Faint technical geofence circle */}
+                    {/* Scan indicator circle */}
                     <div className="relative w-10 h-10 rounded-full border border-dashed border-accent flex items-center justify-center bg-accent/[0.01] flex-shrink-0">
                       <span className="w-1 h-1 rounded-full bg-accent animate-ping absolute" />
                       <span className="w-1.5 h-1.5 rounded-full bg-accent relative z-10" />
                     </div>
                     <div className="text-[7.5px] text-text-muted flex flex-col gap-0.5">
-                      <div className="font-bold text-text">GPS ZONE RADAR</div>
-                      <div>Accuracy: 3.8m</div>
-                      <div className="text-accent2 font-bold mt-0.5">✓ Inside geofence boundary</div>
+                      <div className="font-bold text-text">FACE SCAN ACTIVE</div>
+                      <div>Model: ArcFace 512-dim</div>
+                      <div className="text-accent2 font-bold mt-0.5">✓ Jemaat ID verified</div>
                     </div>
                   </div>
                 </div>
@@ -445,7 +445,7 @@ export default function DetailedJourney() {
               {/* Floating Handwritten note */}
               <YearParallax scrollOffset={15} className="absolute left-[18%] top-[70%] z-20">
                 <span className="handwritten text-2xl text-accent/65 select-none rotate-[-3deg] block">
-                  ~ presensi online & GPS
+                  ~ presensi & face recognition
                 </span>
               </YearParallax>
             </YearSceneWrapper>
@@ -610,7 +610,7 @@ export default function DetailedJourney() {
                 )}
                 {idx === 2 && (
                   <div className="w-full py-2 rounded border border-accent2/60 bg-accent2/[0.02] text-accent2 font-mono font-bold text-[8px] text-center tracking-widest mt-2">
-                    ✓ GPS LOCATION VERIFIED (Inside Zone)
+                    ✓ FACE RECOGNIZED — attendance recorded
                   </div>
                 )}
                 {idx === 3 && (

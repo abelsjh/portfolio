@@ -232,7 +232,7 @@ export default function Hero() {
               </div>
               <span>{"// learning process notes"}</span>
               <div className="border border-dashed border-border/85 h-12 flex items-center justify-center bg-bg/40 text-[8px] text-center px-2">
-                [ Audio Synthesizer Node ]
+                [ CI4 + FastAPI + MySQL ]
               </div>
             </motion.div>
           </motion.div>
@@ -247,7 +247,7 @@ export default function Hero() {
               variants={handwrittenReveal}
               className="bg-white/85 p-3 rounded-lg shadow-sm border border-border/40 font-handwritten text-xl text-accent cursor-default hover:scale-105 transition-transform duration-300"
             >
-              process over perfection
+              build the backbone
             </motion.div>
           </motion.div>
         </motion.div>
@@ -312,20 +312,43 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={elementReveal}
-            className="flex flex-col sm:flex-row items-center gap-4 mt-2 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-2 w-full sm:w-auto"
           >
-            <a
+            <motion.a
               href="#journey"
-              className="w-full sm:w-auto px-7 py-3.5 bg-accent text-bg font-semibold rounded-full hover:translate-y-[-2px] transition-all duration-300 shadow-md hover:shadow-accent/25 flex items-center justify-center gap-2 text-sm"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="w-full sm:w-auto px-7 py-3.5 bg-accent text-bg font-semibold rounded-full shadow-md hover:shadow-accent/25 flex items-center justify-center gap-2 text-sm text-center"
             >
               Explore the Journey
-            </a>
-            <a
-              href="#contact"
-              className="w-full sm:w-auto px-7 py-3.5 border border-border text-text font-semibold rounded-full hover:border-accent hover:text-accent hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center text-sm"
-            >
-              Let’s Connect
-            </a>
+            </motion.a>
+            <div className="flex items-center gap-2.5 w-full sm:w-auto">
+              <motion.a
+                href="/Resume_Abelsjh_Portfolio.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="flex-1 sm:flex-initial px-5 py-3.5 border border-border text-text font-semibold rounded-full hover:border-accent hover:text-accent transition-colors duration-300 flex items-center justify-center gap-2 text-sm bg-bg/40 backdrop-blur-sm"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <span>View Resume</span>
+              </motion.a>
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="flex-1 sm:flex-initial px-5 py-3.5 border border-border/60 text-text-muted font-medium rounded-full hover:border-accent hover:text-accent transition-colors duration-300 flex items-center justify-center text-sm"
+              >
+                Connect
+              </motion.a>
+            </div>
           </motion.div>
         </motion.div>
 

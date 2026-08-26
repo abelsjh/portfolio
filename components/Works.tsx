@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Metric {
   icon: string;
@@ -62,13 +63,13 @@ const projects: Project[] = [
       "/gereja_arsip_main.png",
     ],
     description:
-      "A digital administration system built for GKI Pekalongan — covering RFID-based congregation attendance, multi-level letter disposition workflows, digital archiving, attendance reports, and integration with WhatsApp Gateway & SMTP email.",
+      "A digital administration system built for GKI Pekalongan — featuring hybrid RFID + face recognition congregation attendance, multi-level letter disposition workflows, digital archiving, attendance reports, and integration with WhatsApp Gateway & SMTP email.",
     metrics: [
-      { icon: "📋", value: "Days → Minutes", label: "Letter disposition process" },
+      { icon: "🙋", value: "Streamlined", label: "Congregation attendance flow" },
       { icon: "✅", value: "Fully Automated", label: "Congregation attendance recap" },
       { icon: "🗂️", value: "8 Modules", label: "Active system features" },
     ],
-    tags: ["CodeIgniter 4", "PHP 8.2", "MySQL", "RFID", "WA Gateway", "SMTP"],
+    tags: ["CodeIgniter 4", "PHP 8.2", "MySQL", "Face Recognition", "WA Gateway", "SMTP"],
     github: "https://github.com/abelsjh",
   },
   {
@@ -122,15 +123,16 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const imgIdx = useSlideshow(project.images, hovered);
 
   return (
-    <div
+    <motion.div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative rounded-2xl border overflow-hidden transition-all duration-500 cursor-default"
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative rounded-2xl border overflow-hidden cursor-default"
       style={{
         background: hovered ? project.bgGlow : "var(--bg2)",
         borderColor: hovered ? project.color + "50" : "var(--border)",
         boxShadow: hovered ? `0 12px 48px ${project.color}18` : "none",
-        transform: hovered ? "translateY(-3px)" : "none",
       }}
     >
       {/* top accent bar */}
@@ -282,26 +284,32 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </div>
           </div>
 
-          {/* Images with crossfade */}
-          {project.images.map((src, i) => (
-            <Image
-              key={src}
-              src={src}
-              alt={`${project.title} screenshot ${i + 1}`}
-              fill
-              sizes="(max-width: 1024px) 100vw, 380px"
-              className="object-cover object-top transition-all duration-700"
-              style={{
-                opacity: i === imgIdx ? 1 : 0,
-                transform: i === imgIdx
-                  ? hovered ? "scale(1.03)" : "scale(1)"
-                  : "scale(0.98)",
-                zIndex: i === imgIdx ? 1 : 0,
-              }}
-              unoptimized
-              priority={index === 0 && i === 0}
-            />
-          ))}
+          {/* Images with AnimatePresence crossfade */}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={imgIdx}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.45 }}
+              className="absolute inset-0"
+              style={{ zIndex: 1 }}
+            >
+              <Image
+                src={project.images[imgIdx]}
+                alt={`${project.title} screenshot ${imgIdx + 1}`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 380px"
+                className="object-cover object-top"
+                style={{
+                  transform: hovered ? "scale(1.03)" : "scale(1)",
+                  transition: "transform 0.7s ease",
+                }}
+                unoptimized
+                priority={index === 0 && imgIdx === 0}
+              />
+            </motion.div>
+          </AnimatePresence>
 
           {/* bottom gradient */}
           <div
@@ -324,7 +332,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

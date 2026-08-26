@@ -62,7 +62,10 @@ export default function ContribCalendar({ calendarData }: ContribCalendarProps) 
         </div>
       </div>
 
-      <div className="overflow-x-auto pb-2 scrollbar-none">
+      <div className="overflow-x-auto pb-2 touch-pan-x scrollbar-thin">
+        <div className="text-[10px] text-text-muted/60 mb-2 sm:hidden flex items-center gap-1">
+          <span>← Swipe to explore 365-day activity →</span>
+        </div>
         <div className="min-w-[680px] flex flex-col gap-1.5">
           {/* Month labels */}
           <div className="flex text-[10px] text-text-muted pl-6 relative h-4">
