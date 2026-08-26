@@ -6,12 +6,14 @@ import TechStack from "@/components/TechStack";
 import Works from "@/components/Works";
 import BeyondCode from "@/components/BeyondCode";
 import Contact from "@/components/Contact";
+import StickyFooter from "@/components/StickyFooter";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <SocialSidebar />
+      <StickyFooter />
       <main>
         <Hero />
         <Journey />

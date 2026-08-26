@@ -400,7 +400,7 @@ export default function BeyondCode() {
             <div className="flex items-center justify-center gap-4 mb-5">
               <div className="w-8 h-[1px] bg-accent/40" />
               <span className="text-[10px] uppercase tracking-[0.3em] text-accent/70 font-mono font-bold">
-                Beyond Code
+                Learning Log
               </span>
               <div className="w-8 h-[1px] bg-accent/40" />
             </div>
@@ -408,12 +408,12 @@ export default function BeyondCode() {
               className="serif-font font-light text-text leading-[1.1] tracking-tight"
               style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}
             >
-              Things that live{" "}
-              <span className="italic text-accent">outside</span>{" "}
-              the screen.
+              Moments that shaped{" "}
+              <span className="italic text-accent">how I think</span>{" "}
+              and build.
             </h2>
             <p className="text-text-muted text-sm sm:text-base font-light leading-relaxed max-w-lg mx-auto mt-6">
-              The parts of me that don&apos;t show up in a commit history — but quietly shape the way I think and build.
+              Context outside the terminal. The experiences, communities, and moments that quietly influence the way I approach problems and build systems.
             </p>
           </div>
         </div>

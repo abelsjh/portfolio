@@ -265,7 +265,7 @@ export default function Hero() {
             variants={lineReveal}
             className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-text-muted font-bold"
           >
-            CREATIVE DEVELOPER &bull; SYSTEM DESIGNER &bull; STORYTELLER
+            FULL STACK DEVELOPER &bull; BACKEND-FOCUSED &bull; INFORMATION SYSTEMS
           </motion.span>
 
           {/* Main Headline */}
@@ -285,19 +285,19 @@ export default function Hero() {
                   unoptimized
                 />
               </span>{" "}
-              build through
+              build systems
             </motion.span>
             <motion.span variants={lineReveal} className="block font-serif italic font-light">
-              what I learn,
+              that work behind
             </motion.span>
             <motion.span variants={lineReveal} className="block font-serif italic font-light">
-              what I feel,
+              the scenes,
             </motion.span>
             <motion.span variants={lineReveal} className="block">
-              and what I
+              so the front feels
             </motion.span>
             <motion.span variants={lineReveal} className="block font-serif italic text-accent font-normal">
-              experience.
+              effortless.
             </motion.span>
           </h1>
 
@@ -306,7 +306,7 @@ export default function Hero() {
             variants={elementReveal}
             className="text-text-muted text-sm sm:text-base leading-relaxed max-w-md"
           >
-            Every project becomes a place where I learn, explore, and shape ideas into experiences.
+            Backend-focused full stack developer and Information Systems student — building systems that solve real operational problems, from API integrations to business logic and database architecture.
           </motion.p>
 
           {/* CTA Buttons */}

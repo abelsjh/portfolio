@@ -39,7 +39,7 @@ const projects: Project[] = [
       "/bookit_negotiations_auth.png",
     ],
     description:
-      "My first real web development project. A CodeIgniter 4-based marketplace featuring real-time price negotiation via WebSocket — buyers and sellers can haggle live without ever refreshing the page.",
+      "A CodeIgniter 4-based marketplace with a real-time price negotiation feature — buyers and sellers can negotiate live via WebSocket without ever refreshing the page. A feature rarely found in conventional marketplace systems.",
     metrics: [
       { icon: "🤝", value: "Real-time", label: "Negotiation via WebSocket" },
       { icon: "📦", value: "Multi-role", label: "Buyer, Seller & Admin" },
@@ -87,8 +87,8 @@ const projects: Project[] = [
     description:
       "A full-featured POS system for a motorcycle spare parts shop — multi-role access (Owner & Cashier), FIFO batch stock management, camera-based barcode scanning, 3-zone label printing, real-time profit reports, and a hidden cost-code system to protect supplier pricing. Built with Laravel; this prototype demonstrates the core feature set.",
     metrics: [
-      { icon: "⚡", value: "3× Faster", label: "Transaction processing" },
-      { icon: "📉", value: "~80% Reduced", label: "Cashier human error" },
+      { icon: "⚡", value: "Faster", label: "Transaction flow vs. manual" },
+      { icon: "📉", value: "Fewer Errors", label: "Human error in cashier ops" },
       { icon: "🏗️", value: "7 Modules", label: "Core system features" },
     ],
     tags: ["Laravel", "PHP", "MySQL", "Barcode", "FIFO Batch"],
