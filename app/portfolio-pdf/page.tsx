@@ -423,7 +423,7 @@ export default function PortfolioPdfPage() {
                     height: "80px",
                     borderRadius: "50%",
                     objectFit: "cover",
-                    objectPosition: "center top",
+                    objectPosition: "center 25%",
                     border: "2px solid #a97848",
                   }}
                 />
