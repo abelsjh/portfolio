@@ -614,7 +614,7 @@ export default function ResumePage() {
             <div key={project.id} className="project-card" style={{ borderLeftColor: project.color, borderLeftWidth: "3px" }}>
               <div className="project-header">
                 <div style={{ flex: 1 }}>
-                  <div style={{ display: "flex", itemsCenter: "baseline", gap: "8px", marginBottom: "2px" }}>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "8px", marginBottom: "2px" }}>
                     <span className="project-id">{project.id}</span>
                     <h3
                       style={{
