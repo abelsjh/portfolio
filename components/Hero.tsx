@@ -312,9 +312,9 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={elementReveal}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-2 w-full sm:w-auto flex-wrap justify-center"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-2 w-full sm:w-auto justify-center"
           >
-            {/* LEFT: PDF Portfolio Document (Outline style) */}
+            {/* LEFT: PDF Portfolio Document (Equal width flank) */}
             <motion.a
               href="/portfolio-pdf"
               target="_blank"
@@ -322,7 +322,7 @@ export default function Hero() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="w-full sm:w-auto px-6 py-3.5 border border-border/70 text-text font-medium rounded-full hover:border-accent hover:text-accent transition-colors duration-300 flex items-center justify-center gap-2 text-sm bg-bg/60 backdrop-blur-sm"
+              className="w-full sm:w-[160px] py-3.5 border border-border/70 text-text font-medium rounded-full hover:border-accent hover:text-accent transition-colors duration-300 flex items-center justify-center gap-2 text-sm bg-bg/60 backdrop-blur-sm"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -330,18 +330,18 @@ export default function Hero() {
               PDF Portfolio
             </motion.a>
 
-            {/* MIDDLE: Connect (Primary Accent CTA) */}
+            {/* MIDDLE: Connect (Exact Center CTA) */}
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="w-full sm:w-auto px-7 py-3.5 bg-accent text-bg font-semibold rounded-full shadow-md hover:shadow-accent/25 flex items-center justify-center gap-2 text-sm text-center"
+              className="w-full sm:w-[150px] py-3.5 bg-accent text-bg font-semibold rounded-full shadow-md hover:shadow-accent/25 flex items-center justify-center gap-2 text-sm text-center"
             >
               Connect →
             </motion.a>
 
-            {/* RIGHT: Original Resume File (Outline style) */}
+            {/* RIGHT: Original Resume File (Equal width flank) */}
             <motion.a
               href="/Resume_Abelsjh_Portfolio.pdf"
               target="_blank"
@@ -349,7 +349,7 @@ export default function Hero() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="w-full sm:w-auto px-6 py-3.5 border border-border/70 text-text font-medium rounded-full hover:border-accent hover:text-accent transition-colors duration-300 flex items-center justify-center gap-2 text-sm bg-bg/60 backdrop-blur-sm"
+              className="w-full sm:w-[160px] py-3.5 border border-border/70 text-text font-medium rounded-full hover:border-accent hover:text-accent transition-colors duration-300 flex items-center justify-center gap-2 text-sm bg-bg/60 backdrop-blur-sm"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
