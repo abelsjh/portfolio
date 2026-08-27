@@ -87,8 +87,8 @@ const BEYOND_PHOTOS = [
   { src: "/Foto/foto_1.webp", title: "Captured Frames", cat: "Moments", pos: "center 25%" },
   { src: "/Foto/foto_2.jpg", title: "Laughter & Love", cat: "Memory Shards", pos: "center 15%" },
   { src: "/Foto/foto_3.jpg", title: "Scenic Focus", cat: "Fujifilm Prints", pos: "center 25%" },
-  { src: "/Foto/foto_5.jpg", title: "Shared Moments", cat: "Fellowship", pos: "center 85%" },
-  { src: "/Foto/foto_7.jpg", title: "Sunsets & Stories", cat: "Reflections", pos: "center 65%" },
+  { src: "/Foto/foto_5.jpg", title: "Shared Moments", cat: "Fellowship", pos: "center 60%" },
+  { src: "/Foto/foto_7.jpg", title: "Sunsets & Stories", cat: "Reflections", pos: "center 40%" },
   { src: "/Foto/foto_11.webp", title: "Youth Community", cat: "Connections", pos: "center 40%" },
 ];
 
