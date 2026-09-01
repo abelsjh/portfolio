@@ -55,6 +55,9 @@ async function getPublicGitHubContributions(username: string): Promise<Contribut
 
     if (days.length === 0) return null;
 
+    // Sort days chronologically (GitHub HTML renders row-by-row, so we must sort by date to group into 7-day week columns)
+    days.sort((a, b) => a.date.localeCompare(b.date));
+
     const weeks: ContributionWeek[] = [];
     let currentWeek: ContributionDay[] = [];
 
