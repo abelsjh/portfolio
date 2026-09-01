@@ -29,51 +29,52 @@ export default function ContribCalendar({ calendarData }: ContribCalendarProps) 
 
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-  // Helper to get month label placements
+  // Helper to get month label placements (prevent overlap by requiring min 3 weeks gap)
   const monthLabels: { name: string; weekIndex: number }[] = [];
-  let lastMonth = -1;
+  let lastWeekIndex = -4;
 
   calendarData.weeks.forEach((week, index) => {
     const firstDayWithDate = week.contributionDays.find((d) => d.date);
     if (firstDayWithDate) {
       const date = new Date(firstDayWithDate.date);
-      const month = date.getMonth();
-      if (month !== lastMonth) {
-        monthLabels.push({ name: months[month], weekIndex: index });
-        lastMonth = month;
+      const dayOfMonth = date.getDate();
+      if (dayOfMonth <= 7 && index - lastWeekIndex >= 3) {
+        monthLabels.push({ name: months[date.getMonth()], weekIndex: index });
+        lastWeekIndex = index;
       }
     }
   });
 
   return (
-    <div className="w-full flex flex-col gap-4 relative">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-        <span className="text-xs text-text-muted font-medium">
-          <strong className="text-accent text-sm">{calendarData.totalContributions}</strong> contributions in the last year
+    <div className="w-full flex flex-col gap-5 relative">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-2 border-b border-border/40">
+        <span className="text-xs text-text-muted font-medium flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          <strong className="text-accent text-sm font-semibold">{calendarData.totalContributions}</strong> contributions in the last 12 months
         </span>
-        <div className="flex items-center gap-1 text-[11px] text-text-muted">
+        <div className="flex items-center gap-1.5 text-[11px] text-text-muted font-mono">
           <span>Less</span>
-          <span className="w-2.5 h-2.5 rounded-[2px]" style={{ background: "rgba(212, 184, 150, 0.2)" }} />
-          <span className="w-2.5 h-2.5 rounded-[2px]" style={{ background: "#D4B896" }} />
-          <span className="w-2.5 h-2.5 rounded-[2px]" style={{ background: "#C09A6E" }} />
-          <span className="w-2.5 h-2.5 rounded-[2px]" style={{ background: "#A97848" }} />
-          <span className="w-2.5 h-2.5 rounded-[2px]" style={{ background: "#6B4925" }} />
+          <span className="w-3 h-3 rounded-[3px]" style={{ background: "rgba(212, 184, 150, 0.2)" }} />
+          <span className="w-3 h-3 rounded-[3px]" style={{ background: "#D4B896" }} />
+          <span className="w-3 h-3 rounded-[3px]" style={{ background: "#C09A6E" }} />
+          <span className="w-3 h-3 rounded-[3px]" style={{ background: "#A97848" }} />
+          <span className="w-3 h-3 rounded-[3px]" style={{ background: "#6B4925" }} />
           <span>More</span>
         </div>
       </div>
 
-      <div className="overflow-x-auto pb-2 touch-pan-x scrollbar-thin">
+      <div className="overflow-x-auto pb-3 touch-pan-x scrollbar-thin">
         <div className="text-[10px] text-text-muted/60 mb-2 sm:hidden flex items-center gap-1">
           <span>← Swipe to explore 365-day activity →</span>
         </div>
-        <div className="min-w-[680px] flex flex-col gap-1.5">
+        <div className="min-w-[760px] flex flex-col gap-2 mx-auto justify-center">
           {/* Month labels */}
-          <div className="flex text-[10px] text-text-muted pl-6 relative h-4">
+          <div className="flex text-[10px] text-text-muted/80 pl-8 relative h-4 select-none">
             {monthLabels.map((m, idx) => (
               <span
                 key={idx}
-                className="absolute font-mono"
-                style={{ left: `${m.weekIndex * 13 + 24}px` }}
+                className="absolute font-mono font-medium"
+                style={{ left: `${m.weekIndex * 14.5 + 32}px` }}
               >
                 {m.name}
               </span>
@@ -81,22 +82,22 @@ export default function ContribCalendar({ calendarData }: ContribCalendarProps) 
           </div>
 
           {/* Grid with day labels */}
-          <div className="flex gap-1.5">
-            {/* Weekday labels */}
-            <div className="flex flex-col justify-between text-[9px] text-text-muted font-mono pr-1 py-[2px] h-[91px]">
-              <span>Mon</span>
-              <span>Wed</span>
-              <span>Fri</span>
+          <div className="flex gap-2 items-start">
+            {/* Weekday labels aligned to Mon (row 1), Wed (row 3), Fri (row 5) */}
+            <div className="relative text-[9.5px] text-text-muted/80 font-mono w-6 h-[101px] flex-shrink-0 select-none">
+              <span className="absolute top-[14.5px] left-0">Mon</span>
+              <span className="absolute top-[43.5px] left-0">Wed</span>
+              <span className="absolute top-[72.5px] left-0">Fri</span>
             </div>
 
             {/* Weeks */}
-            <div className="flex gap-[3px]">
+            <div className="flex gap-[3.5px]">
               {calendarData.weeks.map((week, wIdx) => (
-                <div key={wIdx} className="flex flex-col gap-[3px]">
+                <div key={wIdx} className="flex flex-col gap-[3.5px]">
                   {week.contributionDays.map((day, dIdx) => (
                     <div
                       key={dIdx}
-                      className="w-[10px] h-[10px] rounded-[2px] transition-transform duration-150 hover:scale-125 cursor-pointer relative"
+                      className="w-[11px] h-[11px] rounded-[2.5px] transition-transform duration-150 hover:scale-125 cursor-pointer relative"
                       style={{
                         background: getColor(day.contributionCount),
                       }}
